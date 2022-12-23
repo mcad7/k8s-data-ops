@@ -6,7 +6,7 @@ data:
   controller.log.format: "json"
 
   server.insecure: "true"
-  server.rootpath: "/argo-cd"
+  server.rootpath: "/"
   server.log.format: "json"
 
   reposerver.log.format: "json"
