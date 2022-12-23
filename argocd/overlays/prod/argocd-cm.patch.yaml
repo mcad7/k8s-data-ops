@@ -3,7 +3,7 @@ kind: ConfigMap
 metadata:
   name: argocd-cm
 data:
-  url: http://argo-cd.localhost
+  url: http://argocd.localhost
   statusbadge.enabled: "true"
   users.anonymous.enabled: "false"
   passwordPattern: "^.{8,32}$"
@@ -32,7 +32,7 @@ data:
       config:
         clientID: $argocd-sso-secret:dex.github.clientId
         clientSecret: $argocd-sso-secret:dex.github.clientSecret
-        redirectURI: http://argo-cd.localhost/api/dex/callback
+        redirectURI: http://argocd.localhost/api/dex/callback
     staticClients:
       - id: argo-workflows-sso
         name: Argo Workflow
