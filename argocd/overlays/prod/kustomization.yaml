@@ -10,5 +10,3 @@ resources:
 patchesStrategicMerge:
 - ./argocd-cm.patch.yaml
 - ./argocd-cmd-params-cm.patch.yaml
-commonAnnotations:
-  secret-sha: c006429d0867e8b7c7eea5347d90146ab623258278e8b15ceaab46e6e321ddc1
