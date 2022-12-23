@@ -1,0 +1,24 @@
+# https://taskfile.dev
+
+version: '3'
+
+vars:
+  GREETING: Hello, World!
+
+tasks:
+  init:
+    cmds:
+      - task: sealed-secrets
+      - sleep 3
+      - task: argo-cd
+  default:
+    cmds:
+      - echo "{{.GREETING}}"
+    silent: true
+  argo-cd:
+    cmds:
+      - kubectl create namespace argocd --dry-run=client -o yaml | kubectl apply -f-
+      - kustomize build --load-restrictor LoadRestrictionsNone argocd/overlays/prod | kubectl apply -n argocd -f-
+  sealed-secrets:
+    cmds:
+      - kubectl apply -f https://github.com/bitnami-labs/sealed-secrets/releases/download/v0.19.3/controller.yaml
