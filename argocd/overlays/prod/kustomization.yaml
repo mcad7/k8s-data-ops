@@ -4,4 +4,11 @@ resources:
 - https://raw.githubusercontent.com/argoproj/argo-cd/v2.5.5/manifests/install.yaml
 - root-app.yaml
 - project.yaml
-- secret.yaml
+- argo-workflows-sso.secret.yaml
+- argocd-sso.secret.yaml
+
+patchesStrategicMerge:
+- ./argocd-cm.patch.yaml
+- ./argocd-cmd-params-cm.patch.yaml
+commonAnnotations:
+  secret-sha: c006429d0867e8b7c7eea5347d90146ab623258278e8b15ceaab46e6e321ddc1

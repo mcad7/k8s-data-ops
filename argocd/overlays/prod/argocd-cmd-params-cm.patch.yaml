@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: argocd-cmd-params-cm
+data:
+  controller.log.format: "json"
+
+  server.insecure: "true"
+  server.rootpath: "/argo-cd"
+  server.log.format: "json"
+
+  reposerver.log.format: "json"
