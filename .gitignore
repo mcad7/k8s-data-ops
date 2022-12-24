@@ -1,2 +1,5 @@
+scratchpad/**
 output.yaml
 secret.*.yaml
+
+!.gitkeep
