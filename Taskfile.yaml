@@ -18,7 +18,14 @@ tasks:
   argo-cd:
     cmds:
       - kubectl create namespace argocd --dry-run=client -o yaml | kubectl apply -f-
-      - kustomize build --load-restrictor LoadRestrictionsNone argocd/overlays/prod | kubectl apply -n argocd -f-
+      - kustomize build --load-restrictor LoadRestrictionsNone argocd/overlays/prod | kubectl apply --wait=true -n argocd -f-
   sealed-secrets:
     cmds:
       - kubectl apply -f https://github.com/bitnami-labs/sealed-secrets/releases/download/v0.19.3/controller.yaml
+  recreate-cluster:
+    cmds:
+      - kind delete cluster --name data-ops
+      - kind create cluster --config=cluster.yaml
+      - task: sealed-secrets
+      - task: argo-cd
+      - kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/main/deploy/static/provider/kind/deploy.yaml
