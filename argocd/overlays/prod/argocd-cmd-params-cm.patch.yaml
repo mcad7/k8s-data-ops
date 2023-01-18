@@ -7,6 +7,6 @@ data:
 
   server.insecure: "true"
   server.log.format: "json"
-  server.rootpath: "/argocd"
-  
+  server.basehref: "/argocd"
+
   reposerver.log.format: "json"
