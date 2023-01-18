@@ -1,0 +1,27 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: ingress-routing
+  annotations:
+    nginx.ingress.kubernetes.io/backend-protocol: "HTTP"
+    nginx.ingress.kubernetes.io/use-regex: "true"
+spec:
+  ingressClassName: nginx
+  rules:
+  - host: linux-remote-dev.westeurope.cloudapp.azure.com
+    http:
+      paths:
+      - path: /argocd/api/dex
+        pathType: Prefix
+        backend:
+          service: 
+            name: argocd-dex-server
+            port: 
+              number: 5556
+      - path: /argocd(/|.*)
+        pathType: Prefix
+        backend:
+          service: 
+            name: argocd-server
+            port: 
+              number: 80

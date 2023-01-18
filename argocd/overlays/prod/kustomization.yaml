@@ -6,6 +6,7 @@ resources:
 - project.yaml
 - argo-workflows-sso.secret.yaml
 - argocd-sso.secret.yaml
+- routing.yaml
 
 patchesStrategicMerge:
 - ./argocd-cm.patch.yaml
