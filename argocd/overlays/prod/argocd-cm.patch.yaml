@@ -31,12 +31,12 @@ data:
       name: GitHub
       config:
         clientID: $argocd-sso-secret:dex.github.client-id
-        clientSecret: $argocd-sso-secret:dex.github.client-id
-        redirectURI: http://linux-remote-dev.westeurope.cloudapp.azure.com/argocd/api/dex/callback
+        clientSecret: $argocd-sso-secret:dex.github.client-secret
+        redirectURI: https://linux-remote-dev.westeurope.cloudapp.azure.com/argocd/api/dex/callback
     staticClients:
       - id: argo-workflows-sso
         name: Argo Workflow
         redirectURIs:
-          - http://linux-remote-dev.westeurope.cloudapp.azure.com/argo/oauth2/callback
+          - https://linux-remote-dev.westeurope.cloudapp.azure.com/argo/oauth2/callback
         secretEnv: ARGO_WORKFLOWS_SSO_CLIENT_SECRET
 
