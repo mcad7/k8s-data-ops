@@ -9,4 +9,6 @@ data:
   server.log.format: "json"
   server.rootpath: "/argocd"
 
+  dexserver.disable.tls: "true"
+
   reposerver.log.format: "json"
