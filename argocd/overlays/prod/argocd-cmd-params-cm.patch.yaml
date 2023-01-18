@@ -10,5 +10,6 @@ data:
   server.rootpath: "/argocd"
 
   dexserver.disable.tls: "true"
+  dex.server: "http://argocd-dex-server:5556"
 
   reposerver.log.format: "json"
