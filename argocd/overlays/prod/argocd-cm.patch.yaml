@@ -3,7 +3,7 @@ kind: ConfigMap
 metadata:
   name: argocd-cm
 data:
-  url: http://linux-remote-dev.westeurope.cloudapp.azure.com/argocd/
+  url: http://linux-remote-dev.westeurope.cloudapp.azure.com/argocd
   statusbadge.enabled: "true"
   users.anonymous.enabled: "false"
   passwordPattern: "^.{8,32}$"
