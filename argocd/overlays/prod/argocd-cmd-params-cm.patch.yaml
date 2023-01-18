@@ -7,5 +7,6 @@ data:
 
   server.insecure: "true"
   server.log.format: "json"
-
+  server.rootpath: "/argocd"
+  
   reposerver.log.format: "json"
